@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<nav lang="en" dir="ltr">
+  <head>
+    <style>
+      :root {
+  
+  --typewriterSpeed: 6s;
+}
+
+body
+{
+    margin:0;
+
+  
+    background-color:peachpuff;
+}
+h1
+{
+    position:relative;
+    font-size:4rem;
+    position:relative;
+   
+}
+a{
+  text-decoration: none;
+}
+.bg{
+
+  margin:50px 170px;
+
+}
+button{
+  margin-left: 650px;
+  background-color: lightgreen;
+}
+h1::before,
+h1::after
+{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+
+h1::before
+{
+    background:peachpuff;
+    animation:typewritter 6s steps(28) 2s forwards;
+}
+h1::after
+{
+    width:0.125em;
+    background:black;
+    animation:
+    typewritter 6s steps(28) 2s forwards,
+    blink 730ms steps(28) infinite,
+    blinks 12s steps(28) forwards;
+}
+@keyframes blinks
+{
+    to{
+        background-color:peachpuff;
+    }
+}
+@keyframes typewritter
+{
+    to{left:100%;}
+}
+
+@keyframes blink
+{
+    to{
+    background-color:transparent;
+    }
+}
+
+
+.subtitle
+{
+  display:grid;
+  place-content:center;
+  text-align:center;
+    color:hsl(0 0% 0%/0.7);
+    font-size:2rem;
+    font-weight:400;
+    opacity:0;
+    transform: translateY(3rem);
+    animation: fade 2s ease 8s forwards;
+    
+}
+
+  
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+      
+     div {text-align: center;}
+ </style>
+    <meta charset="utf-8">
+    <title>Car resale value </title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  </head>
+  <body>
+    
+    <section class="header">
+      <div class="text-box">
+        <h1 class="bg">CAR RESALE VALUE PREDICTION</h1>
+        <p class="subtitle">welcome to our webpage</a></p>
+        <br>
+        <button class="subtitle "><a href="./predict_page"  style="font-size:30px" >Check price</a></button>
+        <a href='https://postimg.cc/kB3n3Ss8' target='_blank'><img src='https://i.postimg.cc/kB3n3Ss8/drift2.jpg' border='0'  style="width:600px"alt='drift2'/></a>
+          
+      </div>   
+    </section>
+  </nav>
+    </body>
+    </body>
+  </body>
+</html>
