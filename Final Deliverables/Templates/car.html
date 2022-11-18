@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<nav lang="en" dir="ltr">
+  <head>
+    <title>Car Resale Value </title>
+    <style>
+        h1 {
+          position: relative;
+          padding: 0;
+          margin: 0;
+          font-family: "Raleway", sans-serif;
+          font-weight: 300;
+          font-size: 40px;
+          color: #080808;
+          -webkit-transition: all 0.4s ease 0s;
+          -o-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s;
+        }
+
+        h1 span {
+          display: block;
+          font-size: 0.5em;
+          line-height: 1.3;
+        }
+        h1 em {
+          font-style: normal;
+          font-weight: 600;
+        }
+
+        .two h1 {
+          text-transform: capitalize;
+        }
+        .two h1:before {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 200px;
+          height: 2px;
+          content: "";
+          background-color: orange;
+        }
+
+        .two h1 span {
+          font-size: 13px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          line-height: 3em;
+          padding-left: 0.25em;
+          color: rgba(0, 0, 0, 0.4);
+          padding-bottom: 10px;
+        }
+        .alt-two h1 {
+          text-align:center;
+        }
+        .alt-two h1:before {
+          left:50%; margin-left:-30px;
+        }
+
+        .headding {
+          width: fit-content;
+          margin: auto;
+        }
+        .btn--border {
+          display: flex;
+          width: 180px;
+          height: 70px;
+          justify-content: center;
+          align-items: center;
+          color: #333;
+          font-weight: bold;
+          font-size: 20px;
+          background: #fff;
+          text-decoration: none;
+          border: 3px solid #333;
+          transition: .3s;
+          box-sizing: border-box;
+          position: relative;
+        }
+        .btn--border::before {
+          content: '';
+          height: 0;
+          width: 0;
+          right: -3px;
+          top: -3px;
+          position: absolute;
+          border-top: 3px solid orange;
+          border-right: 3px solid orange;
+          border-left: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+          opacity: 0;
+          transition: .5s;
+        }
+
+        .btn--border::after {
+          content: '';
+          height: 0;
+          width: 0;
+          bottom: -3px;
+          left: -3px;
+          position: absolute;
+          border-bottom: 3px solid orange;
+          border-left: 3px solid orange;
+          border-right: 3px solid transparent;
+          border-top: 3px solid transparent;
+          opacity: 0;
+          transition:.5s;
+        }
+
+        .btn--border:hover {
+          background: #333;
+          color: orange;
+        }
+        .btn--border:hover::before,
+        .btn--border:hover::after {
+          height: 100%;
+          width: 100%;
+          opacity: 1;
+        }
+        .wrapper {
+          display: flex;
+          justify-content: space-evenly;
+          margin-bottom: 100px;
+        }
+
+        .c-list {
+          counter-reset: list;
+          list-style-type: none;
+        }
+        .c-list li {
+          position: relative;
+          background-color: #333;
+          padding: 0.5rem 2rem 0.5rem 1rem;
+        }
+        .c-list li:before {
+          counter-increment: list;
+          content: counter(list);
+          position: absolute;
+          line-height: 2.5;
+          top: 50%;
+          left: -2rem;
+          transform: translateY(-50%);
+          width: 2rem;
+          height: 100%;
+          background: orange;
+          text-align: center;
+          color: white;
+        }
+          .listw {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: white !important;
+          padding: 40px 0;
+        }
+        li ~ li {
+          margin-top: 0.5rem;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="two headding">
+      <h1>Car Resale Value Prediction
+        <span>Welcome, Here you can predict your Vintage car or New-fashioned value</span>
+      </h1>
+    </div>
+    <div class="listw">
+      <h1 class="c-wa-i">Information Required</h1>
+      <ol class="c-list">
+        <li>Registration year</li>
+        <li>Registration Month</li>
+        <li>Power of car in PS</li>
+        <li>Kilometers that car have driven</li>
+        <li>Repaire history</li>
+        <li>Model Type</li>
+        <li>Brand</li>
+        <li>Fuel Type</li>
+        <li>Vehicle type</li>
+      </ol>
+    </div>
+    <div class="wrapper">
+      <a href="./predict_page"  class="btn--border" >Check price</a>
+    </div>
+  </body>
+</html>
