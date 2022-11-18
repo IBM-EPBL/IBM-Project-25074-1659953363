@@ -1,129 +1,187 @@
 <!DOCTYPE html>
 <nav lang="en" dir="ltr">
   <head>
+    <title>Car Resale Value </title>
     <style>
-      :root {
-  
-  --typewriterSpeed: 6s;
-}
+        h1 {
+          position: relative;
+          padding: 0;
+          margin: 0;
+          font-family: "Raleway", sans-serif;
+          font-weight: 300;
+          font-size: 40px;
+          color: #080808;
+          -webkit-transition: all 0.4s ease 0s;
+          -o-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s;
+        }
 
-body
-{
-    margin:0;
+        h1 span {
+          display: block;
+          font-size: 0.5em;
+          line-height: 1.3;
+        }
+        h1 em {
+          font-style: normal;
+          font-weight: 600;
+        }
 
-  
-    background-color:peachpuff;
-}
-h1
-{
-    position:relative;
-    font-size:4rem;
-    position:relative;
-   
-}
-a{
-  text-decoration: none;
-}
-.bg{
+        .two h1 {
+          text-transform: capitalize;
+        }
+        .two h1:before {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 200px;
+          height: 2px;
+          content: "";
+          background-color: orange;
+        }
 
-  margin:50px 170px;
+        .two h1 span {
+          font-size: 13px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          line-height: 3em;
+          padding-left: 0.25em;
+          color: rgba(0, 0, 0, 0.4);
+          padding-bottom: 10px;
+        }
+        .alt-two h1 {
+          text-align:center;
+        }
+        .alt-two h1:before {
+          left:50%; margin-left:-30px;
+        }
 
-}
-button{
-  margin-left: 650px;
-  background-color: lightgreen;
-}
-h1::before,
-h1::after
-{
-    content:"";
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-}
+        .headding {
+          width: fit-content;
+          margin: auto;
+        }
+        .btn--border {
+          display: flex;
+          width: 180px;
+          height: 70px;
+          justify-content: center;
+          align-items: center;
+          color: #333;
+          font-weight: bold;
+          font-size: 20px;
+          background: #fff;
+          text-decoration: none;
+          border: 3px solid #333;
+          transition: .3s;
+          box-sizing: border-box;
+          position: relative;
+        }
+        .btn--border::before {
+          content: '';
+          height: 0;
+          width: 0;
+          right: -3px;
+          top: -3px;
+          position: absolute;
+          border-top: 3px solid orange;
+          border-right: 3px solid orange;
+          border-left: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+          opacity: 0;
+          transition: .5s;
+        }
 
+        .btn--border::after {
+          content: '';
+          height: 0;
+          width: 0;
+          bottom: -3px;
+          left: -3px;
+          position: absolute;
+          border-bottom: 3px solid orange;
+          border-left: 3px solid orange;
+          border-right: 3px solid transparent;
+          border-top: 3px solid transparent;
+          opacity: 0;
+          transition:.5s;
+        }
 
-h1::before
-{
-    background:peachpuff;
-    animation:typewritter 6s steps(28) 2s forwards;
-}
-h1::after
-{
-    width:0.125em;
-    background:black;
-    animation:
-    typewritter 6s steps(28) 2s forwards,
-    blink 730ms steps(28) infinite,
-    blinks 12s steps(28) forwards;
-}
-@keyframes blinks
-{
-    to{
-        background-color:peachpuff;
-    }
-}
-@keyframes typewritter
-{
-    to{left:100%;}
-}
+        .btn--border:hover {
+          background: #333;
+          color: orange;
+        }
+        .btn--border:hover::before,
+        .btn--border:hover::after {
+          height: 100%;
+          width: 100%;
+          opacity: 1;
+        }
+        .wrapper {
+          display: flex;
+          justify-content: space-evenly;
+          margin-bottom: 100px;
+        }
 
-@keyframes blink
-{
-    to{
-    background-color:transparent;
-    }
-}
+        .c-list {
+          counter-reset: list;
+          list-style-type: none;
+        }
+        .c-list li {
+          position: relative;
+          background-color: #333;
+          padding: 0.5rem 2rem 0.5rem 1rem;
+        }
+        .c-list li:before {
+          counter-increment: list;
+          content: counter(list);
+          position: absolute;
+          line-height: 2.5;
+          top: 50%;
+          left: -2rem;
+          transform: translateY(-50%);
+          width: 2rem;
+          height: 100%;
+          background: orange;
+          text-align: center;
+          color: white;
+        }
+          .listw {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: white !important;
+          padding: 40px 0;
+        }
+        li ~ li {
+          margin-top: 0.5rem;
+        }
 
-
-.subtitle
-{
-  display:grid;
-  place-content:center;
-  text-align:center;
-    color:hsl(0 0% 0%/0.7);
-    font-size:2rem;
-    font-weight:400;
-    opacity:0;
-    transform: translateY(3rem);
-    animation: fade 2s ease 8s forwards;
-    
-}
-
-  
-
-@keyframes fade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-      
-     div {text-align: center;}
- </style>
-    <meta charset="utf-8">
-    <title>Car resale value </title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    </style>
   </head>
   <body>
-    
-    <section class="header">
-      <div class="text-box">
-        <h1 class="bg">CAR RESALE VALUE PREDICTION</h1>
-        <p class="subtitle">welcome to our webpage</a></p>
-        <br>
-        <button class="subtitle "><a href="./predict_page"  style="font-size:30px" >Check price</a></button>
-        <a href='https://postimg.cc/kB3n3Ss8' target='_blank'><img src='https://i.postimg.cc/kB3n3Ss8/drift2.jpg' border='0'  style="width:600px"alt='drift2'/></a>
-          
-      </div>   
-    </section>
-  </nav>
-    </body>
-    </body>
+    <div class="two headding">
+      <h1>Car Resale Value Prediction
+        <span>Welcome, Here you can predict your Vintage car or New-fashioned value</span>
+      </h1>
+    </div>
+    <div class="listw">
+      <h1 class="c-wa-i">Information Required</h1>
+      <ol class="c-list">
+        <li>Registration year</li>
+        <li>Registration Month</li>
+        <li>Power of car in PS</li>
+        <li>Kilometers that car have driven</li>
+        <li>Repaire history</li>
+        <li>Model Type</li>
+        <li>Brand</li>
+        <li>Fuel Type</li>
+        <li>Vehicle type</li>
+      </ol>
+    </div>
+    <div class="wrapper">
+      <a href="./predict_page"  class="btn--border" >Check price</a>
+    </div>
   </body>
 </html>
