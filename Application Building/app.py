@@ -58,11 +58,9 @@ def predict():
 
 	response_scoring = requests.post('https://us-south.ml.cloud.ibm.com/ml/v4/deployments/f5200456-453f-4fef-854d-a60efc4c2556/predictions?version=2022-11-19', json=payload_scoring,
 	headers={'Authorization': 'Bearer ' + mltoken})
-	print("Scoring response")
 	predictions=response_scoring.json()
-
 	predict = predictions['predictions'][0]['values'][0][0]
-	print("Final prediction :",predict)
+	print("Final prediction :",predict,'\n\n')
 
 	return render_template('predict.html',predict=predict)
 
