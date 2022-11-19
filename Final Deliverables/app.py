@@ -4,11 +4,9 @@ import numpy as np
 from flask import Flask, render_template, Response, request
 import pickle
 from sklearn.preprocessing import LabelEncoder
-
+import requests
+import json
 app = Flask(__name__)#initiate flask app
-
-def load_model(file='model.sav'):#load the saved model
-	return pickle.load(open(file, 'rb'))
 
 @app.route('/')
 def index():#main page
@@ -51,13 +49,22 @@ def predict():
 
 	X = new_df.values.tolist()
 	print('\n\n', X ,'\n\n')
-	predict = reg_model.predict(X)
+	API_KEY = "g36Mplmm8tzI_GQqxMFWkGLEvZZTx8avfFJKmeeNM5us"
+	token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={"apikey":
+	API_KEY, "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
+	mltoken = token_response.json()["access_token"]
+	header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + mltoken}
+	payload_scoring = {"input_data": [{"field": [['g','g','g','g','g','g','g','g','g']], "values": X}]}
 
-	#predict = predictions['predictions'][0]['values'][0][0]
+	response_scoring = requests.post('https://us-south.ml.cloud.ibm.com/ml/v4/deployments/f5200456-453f-4fef-854d-a60efc4c2556/predictions?version=2022-11-19', json=payload_scoring,
+	headers={'Authorization': 'Bearer ' + mltoken})
+	print("Scoring response")
+	predictions=response_scoring.json()
+
+	predict = predictions['predictions'][0]['values'][0][0]
 	print("Final prediction :",predict)
 
 	return render_template('predict.html',predict=predict)
 
 if __name__=='__main__':
-	reg_model = load_model()#load the saved model
 	app.run(debug=True)
