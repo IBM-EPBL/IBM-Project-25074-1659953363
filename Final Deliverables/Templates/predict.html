@@ -7,6 +7,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/predict.css">
     <title>Car Resale Predicted Value</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        /* === BASE HEADING === */ 
+        h1 {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: 300;
+        font-size: 40px;
+        color: #080808;
+        -webkit-transition: all 0.4s ease 0s;
+        -o-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        }
+
+        h1 span {
+        display: block;
+        font-size: 0.5em;
+        line-height: 1.3;
+        }
+        h1 em {
+        font-style: normal;
+        font-weight: 600;
+        }
+        .two h1 {
+        text-transform: capitalize;
+        }
+        .two h1:before {
+        position: absolute;
+        bottom: 0;
+        width: 70px;
+        height: 2px;
+        content: "";
+        align-self: center;
+        background-color: orange;
+        }
+
+        .two h1 span {
+        font-size: 17px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        line-height: 3em;
+        padding-left: 0.25em;
+        color: rgba(0, 0, 0, 1);
+        padding-bottom: 10px;
+        }
+        .alt-two h1 {
+        text-align:center;
+        }
+        .alt-two h1:before {
+        left:50%; margin-left:-30px;
+        }
+    </style>
 </head>
 <style>
     
@@ -14,11 +81,11 @@
 
 <body>
     <section class="header">
-      
-        <div class="text-box">
-            <h1>The Predicted Car Resale Value is </h1>
-            <h1>₹{{predict}}</h1>
-        </div>
+        <div class="two alt-two">
+            <h1>The Predicted Car Resale Value is 
+              <span>₹{{predict}}</span>
+            </h1>
+          </div>
     </section>
 </body>
 
